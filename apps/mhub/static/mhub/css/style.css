@@ -1,0 +1,9 @@
+div.bio-card {
+    vertical-align: top;
+    display: inline-block;
+}
+
+a.back-btn {
+    display: block;
+    margin: 0 700px;
+}
