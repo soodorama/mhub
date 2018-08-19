@@ -3,20 +3,23 @@
 <head>
     <meta charset="utf-8" />
     <title>About the Dope Ass Developers</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'mhub/css/style.css' %}">
 <body>
     <div class="card" style="width: 18rem;">
-        <img class="card-img-top" src=".../100px180/" alt="Card image cap">
+        <img class="card-img-top" src="{% static 'mhub/img/ashwin.jpg' %}" alt="Ashwin Chalaka">
         <div class="card-body">
-            <h5 class="card-title">Card title</h5>
-            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-            <a href="#" class="btn btn-primary">Go somewhere</a>
+            <h5 class="card-title">Ashwin Chalaka</h5>
+            <p class="card-text">Spent time in Oregon to learn how to be a basketball and coding champion</p>
+            <a href="#" class="btn btn-primary">Here's my linkedin</a>
         </div>
         <div class="card" style="width: 18rem;">
-            <img class="card-img-top" src=".../100px180/" alt="Card image cap">
+            <img class="card-img-top" src="{% static 'mhub/img/neil.jpg' %}" alt="Neil Sood">
             <div class="card-body">
-                <h5 class="card-title">Card title</h5>
-                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                <a href="#" class="btn btn-primary">Go somewhere</a>
+                <h5 class="card-title">Neil Sood</h5>
+                <p class="card-text">Spent time in Michigan to get good at ping pong.</p>
+                <a href="#" class="btn btn-primary">Here's my linkedin</a>
             </div>
         </div>
     </div>
