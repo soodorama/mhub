@@ -163,3 +163,14 @@ div.container {
             border-radius: 10px;
             text-shadow: 1px 1px grey;
         }
+    
+    div.container div.player_fixed {
+        position: fixed;
+        height:80px;
+        width:100%;
+        bottom:0px;
+    }
+
+        div.container div.player_fixed p {
+            display:inline-block;
+        }
