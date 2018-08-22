@@ -5,8 +5,12 @@
 }
 
 body {
-    background-color:rgb(215,100,115);
+    background-color:rgb(170, 70, 70);
     color: rgb(244,178,65);
+}
+
+::placeholder {
+    color:black;
 }
 
 div.container {
@@ -41,42 +45,40 @@ div.container {
 
     div.container div.header h1 {
         margin: 55px 25px 0px 545px;
+        text-shadow:1px 1px black;
         color: white;
         display:inline-block
     }
 
         div.container div.header h1 span#logo_first {
             color:rgb(180,0,0);
-            text-shadow:1px 1px black;
         }
 
         div.container div.header h1 span#logo_second {
             color:black;
-            text-shadow:1px 1px black;
         }
 
         div.container div.header h1 span#logo_third {
             color: rgb(244,178,65);
             font-size:1.2em;
-            text-shadow:1px 1px black;
         }
 
     div.container div.searchbar {
         width: 99%;
-        height: 40px;
-        margin: 200px 1% 0px;
+        height: 60px;
+        margin: 25% 1% 0px 1%;
         border-radius: 20px;
         font-size: 0px;
     }
 
         div.container div.searchbar input.search {
             width: 79.5%;
-            height: 40px;
+            height: 60px;
             padding: 0 10px;
-            font-size: 16px;
+            font-size: 22px;
             border: 1px solid black;
             vertical-align: top;
-            background: url('/static/mhub/img/grid.jpg');
+            background: url('/static/mhub/img/grid_light.png');
             background-size: contain;
         }
 
@@ -94,11 +96,11 @@ div.container {
             div.container div.searchbar div.dropdown div.dropdown_content {
                 display: none;
                 position: absolute;
-                left: 20px;
+                left: 1px;
                 background-color: #f1f1f1;
-                width: 80px;
+                width: 103px;
                 box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-                border-radius: 5px;
+                border-radius: 0px 0px 5px 5px;
             }
 
                 div.container div.searchbar div.dropdown div.dropdown_content a {
@@ -108,17 +110,18 @@ div.container {
                     padding: 5px 5px;
                     font-size: 16px;
                     text-align:center;
+                    margin-left: 1px;
                 }
 
             div.container div.searchbar div.dropdown button.dropdown_button {
                 width:100%;
-                height:40px;
-                border-radius: 20px 0 0 20px;
+                height:60px;
+                border-radius: 30px 0 0 30px;
                 font-size: 16px;
                 vertical-align:top;
                 border: 1px solid black;
                 cursor: pointer;
-                background-color: rgb(180,0,0);
+                background-color: rgb(200,0,0);
                 color: white;
             }
 
@@ -129,30 +132,35 @@ div.container {
                     display: block;
                 }
                 div.container div.searchbar div.dropdown:hover button.dropdown_button {
-                    background-color:rgb(120,0,0);
+                    background-color:rgb(170,0,0);
+                    border-radius: 30px 0px 0px 0px;
                 }
 
                     div.container div.searchbar div.dropdown div.dropdown_content img.dropdown_img {
-                        width:30px;
-                        height:30px;
+                        width:40px;
+                        height:40px;
                     }
 
         div.container div.searchbar input.gobutton {
             width: 9.5%;
-            height:40px;
+            height:60px;
             font-size: 16px;
             border:1px solid black;
-            border-radius: 0 20px 20px 0;
+            border-radius: 0 30px 30px 0;
             cursor: pointer;
             color: white;
             background-color: black;
         }
+
+    /* div.container img.loading_pingpong {
+        margin: 0 auto;
+    } */
     
     div.container div.search_results {
         font-size:0px;
         width: 100%;
-        min-height: 300px;
-        margin-top: 20px;
+        min-height: 500px;
+        margin-top: 50px;
         padding-left: 25px;
         text-align:center;
     }
@@ -161,7 +169,7 @@ div.container {
             font-size: 16px;
             width: 30%;
             margin-right: 20px;
-            min-height:300px;
+            min-height:500px;
             background-color: white;
             display: inline-block;
             border-radius: 10px;
@@ -271,4 +279,16 @@ div.container div.search_results results_box {
             margin: 5px;
             text-align: left;
             color: black;
+            text-shadow: 1px 1px grey;
+        }
+    
+    div.container div.player_fixed {
+        position: fixed;
+        height:80px;
+        width:100%;
+        bottom:0px;
+    }
+
+        div.container div.player_fixed p {
+            display:inline-block;
         }
