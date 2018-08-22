@@ -18,7 +18,17 @@
     <div class="searchbar">
         <form action="{% url 'search' %}" method="POST">
             {% csrf_token %}
-            <button class="search_options">Dropdown</button>
+            <div class="dropdown">
+                <button class="dropdown_button">Dropdown</button>
+                <div class="dropdown_content">
+                    <a href="#song">Songs</a>
+                    <a href="#artist">Artists</a>
+                    <a href="#album">Albums</a>
+                    <a href="#date">Dates</a>
+                    <a href="#video">Videos</a>
+                </div>
+            </div>
+            
             <input type="text" name="search" class="search" autocomplete="off" placeholder="Search for Music">
             <!-- <button type="submit" class="gobutton"><i class="glyphicon glyphicon-headphones"></i></button> -->
             <input type="submit" class="gobutton" value="Go">
