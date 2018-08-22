@@ -8,65 +8,64 @@ NAME_REGEX = re.compile(r'^[A-Za-z]+$')
 PASSWORD_REGEX = re.compile(r'^(?=^.{8,}$)(?=.*\d)(?=.*[!@#$%^&*]+)(?![.\n])(?=.*[A-Z])(?=.*[a-z]).*$')
 
 class UserManager(models.Manager):
-    def register_validator(self,postData):
-        errors = {}
-
-        first_name = postData['first_name'].strip()
-        last_name = postData['last_name'].strip()
-        user_name = first_name + " " + last_name
-        email = postData['login_email'].strip().lower()
-        password = postData['password'].strip()
-        confirm = postData['confirm'].strip()
-        
-
-        if len(first_name) < 2 or not NAME_REGEX.match(first_name):
-            errors['first_name'] = "Invalid first name: only letters and more than 2 characters"
-        if len(last_name) < 2 or not NAME_REGEX.match(last_name):
-            errors['last_name'] = "Invalid last name: only letters and more than 2 characters"
-        if len(email) < 7 or not EMAIL_REGEX.match(email):
-            errors['login_email'] = "Invalid email: must be a valid email"
-        if len(password) < 8 or password != confirm:
-            errors['password'] = "Invalid password: password must be at least 8 characters and match the confirmation password"
-    
-        if not errors:
-            user = User.objects.filter(email=email)
-            if user:
-                errors['user'] = "User with that email already exists"
-            else:
-                hashed_pw = bcrypt.hashpw(password.encode(), bcrypt.gensalt())
-                user = User.objects.create(first_name=first_name,last_name=last_name,email=email,password=hashed_pw,level=0)
-                errors['success'] = { 
-                    'message' : "User successfully registered",
-                    'user_id' : user.id,
-                    'user_name' : user.user_name
-                }
-
-        return errors
-    
     def login_validator(self, postData):
         errors = {}
+        inLogin = False
 
-        email = postData['login_email'].strip().lower()
-        input_password = postData['login_password'].strip()
+        if 'first_name' not in postData:
+            inLogin = True
+        if inLogin:
+            if not EMAIL_REGEX.match(postData['email_address'].strip().lower()):
+                errors["email_address"] = "Invalid email address, please try again."
+            if len(postData['password'].strip()) < 8:
+                errors["password"] = "Invalid password, please try again."
 
-        user = User.objects.filter(email=email)
-        if not user:
-            errors['user'] = "No user with that email"
-        else:
-            if bcrypt.checkpw(input_password.encode(), user[0].password.encode()):
-                errors['success'] = { 
-                    'message' : "User successfully logged in",
-                    'user_id' : user[0].id,
-                    'user_name' : user[0].user_name
-                }
+        if len(errors) == 0:
+            currentEmail = postData['email_address'].strip()
+            savedUser = User.objects.filter(email_address = currentEmail)
+            if not savedUser:
+                errors['email_address'] = "That email_address is not registered."
             else:
-                errors['password'] = "Password incorrect"
+                passToMatch = bcrypt.checkpw(postData['password'].strip().encode(), savedUser.values()[0]['password'].encode())
+                if passToMatch:
+                    errors['loginsuccess'] = savedUser
+
+        return errors
+
+    def registration_validator(self, postData):
+        errors = {}
+        inRegistration = False
+
+        if 'first_name' in postData:
+            inRegistration = True
+        if inRegistration:
+            if len(postData['first_name'].strip()) < 2:
+                errors["first_name"] = "First name should be at least 2 characters."
+            if len(postData['last_name'].strip()) < 2:
+                errors["last_name"] = "Last name should be at least 2 characters."
+            if not EMAIL_REGEX.match(postData['email_address'].strip().lower()):
+                errors['email_address'] = "Invalid email_address. "
+            if len(postData['password'].strip()) < 8:
+                errors["password"] = "Password should be at least 8 characters."
+            if postData['conf_password'].strip() != postData['password'].strip():
+                errors['conf_password'] = "Passwords do not match. "
+
+        if len(errors) == 0:
+            currentEmail = postData['email_address']
+            if User.objects.filter(email_address = currentEmail):
+                errors['email_address'] = "That email_address is already registered, please login."
+            else:
+                tempHash = bcrypt.hashpw(postData['password'].strip().encode(), bcrypt.gensalt())
+                tempUser = User.objects.create(first_name=postData['first_name'].strip(), last_name=postData['last_name'].strip(), email_address=postData['email_address'].strip().lower(), password=tempHash)
+                errors['success'] = "Successfully registered. "
+
+        return errors
 
 
 class User(models.Model):
     first_name = models.CharField(max_length=255)
     last_name = models.CharField(max_length=255)
-    email = models.CharField(max_length=255)
+    email_address = models.CharField(max_length=255)
     password = models.TextField()
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
@@ -80,5 +79,35 @@ class Favorite(models.Model):
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
     user = models.ForeignKey(User, related_name="favorites")
+
+# AND THIS...
+
+class SpotifySong(models.Model):
+    title = models.CharField(max_length=255)
+    artist = models.CharField(max_length=255)
+    album = models.CharField(max_length=255)
+    year = models.IntegerField()
+
+class YouTubeSong(models.Model):
+    title = models.CharField(max_length=255)
+    artist = models.CharField(max_length=255)
+    album = models.CharField(max_length=255)
+    year = models.IntegerField()
+
+class SoundcloudSong(models.Model):
+    title = models.CharField(max_length=255)
+    artist = models.CharField(max_length=255)
+    album = models.CharField(max_length=255)
+    year = models.IntegerField()
+
+# OR...
+
+class Song(models.Model):
+    title = models.CharField(max_length=255)
+    artist = models.CharField(max_length=255)
+    album = models.CharField(max_length=255)
+    year = models.IntegerField()
+    type = models.CharField(max_length=50)
+
 
 
