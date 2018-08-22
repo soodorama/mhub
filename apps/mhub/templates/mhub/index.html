@@ -24,7 +24,7 @@
         <form action="{% url 'process_pings' %}" method="POST">
             {% csrf_token %}
             <div class="dropdown">
-                <button class="dropdown_button">Dropdown</button>
+                <button class="dropdown_button"><img src="{% static 'mhub/img/dropdown_search_3.png' %}" alt="Dropdown"></button>
                 <div class="dropdown_content">
                     <a href="#song"><img class="dropdown_img" src="{% static 'mhub/img/songs_search.png' %}" alt="Songs"></a>
                     <a href="#artist"><img class="dropdown_img" src="{% static 'mhub/img/artists_search.png' %}" alt="Artists"></a>
@@ -39,17 +39,14 @@
         </form>
     </div>
 
-<<<<<<< HEAD
-=======
     <img src="{% static 'mhub/img/loading_pingpong_2.gif' %}" alt="Loading Gif" class="loading_pingpong">
     
->>>>>>> 5281cad578e4612fafc309beace3d3750395bbc2
     <div class="search_results">
         <div class="results_box youtube_results">
             <h3>YouTube</h3>
             <div class="content_box">
                 <div class="img_box">
-                    <img class="result_img" src="{% static 'mhub/newimgs/youtube_thumbnail.jpg' %}" alt="result_example">
+                    <img class="result_img" src="{% static 'mhub/img/youtube_thumbnail.png' %}" alt="result_example">
                 </div>
                 <div class="details_box"><ul>
                     <li>Title: latenight chill vibes...</li>
@@ -67,11 +64,12 @@
             <h3>Soundcloud</h3>
             <div class="content_box">Results</div>
         </div>
+        <div class="more_container">
+            <button class="more_results"><a href="{%url 'go_pongs' %}">ping more pong</a></button>
+        </div>
     </div>
 
-    <div class="more_container">
-        <button class="more_results"><a href="{%url 'go_pongs' %}">ping more pong..</a></button>
-    </div>
+    
 
     <div class="player_fixed">
         <p>title</p>

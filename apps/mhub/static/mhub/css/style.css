@@ -14,7 +14,7 @@ body {
 }
 
 div.container {
-    min-height: 900px;
+    min-height: 1000px;
     background: url('/static/mhub/img/table_background_middle.png') no-repeat;
     background-size: cover;
     padding-top: 0.1px;
@@ -125,6 +125,11 @@ div.container {
                 color: white;
             }
 
+                div.container div.searchbar div.dropdown button.dropdown_button img {
+                    width:30px;
+                    height:30px;
+                }
+
                 div.container div.searchbar div.dropdown div.dropdown_content a:hover {
                     background-color: #ddd;
                 }
@@ -144,7 +149,8 @@ div.container {
         div.container div.searchbar input.gobutton {
             width: 9.5%;
             height:60px;
-            font-size: 16px;
+            font-size: 20px;
+            /* font-weight:bold; */
             border:1px solid black;
             border-radius: 0 30px 30px 0;
             cursor: pointer;
@@ -166,6 +172,8 @@ div.container {
     }
 
         div.container div.search_results div.results_box {
+            vertical-align: top;
+            overflow: scroll;
             font-size: 16px;
             width: 30%;
             margin-right: 20px;
@@ -203,11 +211,23 @@ div.container {
                     color: black;
                 }
 
-    div.container div.more_container {
+    div.container div.search_results div.more_container {
         text-align: center;
         height: 90px;
         padding: 35px 0;
+        margin-left: -25px;
     }
+
+        div.container div.search_results div.more_container button.more_results {
+            width: 120px;
+            height:30px;
+            font-size:14px;
+            border-radius: 10px;
+        }
+
+            div.container div.search_results div.more_container button.more_results a {
+                text-decoration: none;
+            }
 
 
 /* **************************************************************************** */
@@ -248,13 +268,7 @@ div.container div.register {
 
 /* **************************************************************************** */
 
-div.container div.search_results results_box {
-    vertical-align: top;
-    overflow: scroll;
-    height: 600px
-}
-
-    div.container div.search_results results_box div.img_box {
+    div.container div.search_results div.results_box div.img_box {
         display:inline-block;
         width: 110px;
         height: 65px;
@@ -262,16 +276,16 @@ div.container div.search_results results_box {
         margin: 5px;
     }
 
-        div.container div.search_results results_box div.img_box {
+        div.container div.search_results div.results_box div.img_box {
             max-width: 100%;
             max-height: 100%
         }
 
-    div.container div.search_results results_box div.details_box {
+    div.container div.search_results div.results_box div.details_box {
         display:inline-block;
     }
 
-        div.container div.search_results results_box div.details_box ul {
+        div.container div.search_results div.results_box div.details_box ul {
             font-size: 10px;
             list-style-type: none;
             vertical-align: top;
