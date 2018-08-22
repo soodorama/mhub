@@ -1,3 +1,4 @@
+/* **************************************************************************** */
 * {
     margin: 0px;
     padding: 0px;
@@ -14,6 +15,17 @@ div.container {
     background-size: cover;
     padding-top: 0.1px;
 }
+
+    div.container div.header_links {
+        width: 100%;
+        margin-top: 30px;
+        height: 10px;
+    }
+
+        div.container div.header_links a {
+            margin-left: 975px;
+            color: white;
+        }
 
     /* div.header {
         padding: 5px;
@@ -56,10 +68,6 @@ div.container {
         border-radius: 20px;
         font-size: 0px;
     }
-
-        div.container div.searchbar h1.searchbar_header {
-            
-        }
 
         div.container div.searchbar input.search {
             width: 79.5%;
@@ -158,4 +166,109 @@ div.container {
             display: inline-block;
             border-radius: 10px;
             vertical-align: top;
+        }
+
+            div.container div.search_results div.results_box div.content_box div.img_box {
+                display:inline-block;
+                width: 110px;
+                height: 65px;
+                vertical-align: top;
+                margin: 5px;
+            }
+
+                div.container div.search_results div.results_box div.content_box div.img_box img {
+                    max-width: 100%;
+                    max-height: 100%
+                }
+
+            div.container div.search_results div.results_box div.content_box div.details_box {
+                display:inline-block
+            }
+
+                div.container div.search_results div.results_box div.content_box div.details_box ul {
+                    font-size: 10px;
+                    list-style-type: none;
+                    vertical-align: top;
+                    margin-left: 10px;
+                    margin: 5px;
+                    text-align: left;
+                    color: black;
+                }
+
+    div.container div.more_container {
+        text-align: center;
+        height: 90px;
+        padding: 35px 0;
+    }
+
+
+/* **************************************************************************** */
+
+div.container div.login {
+    width: 49.5%;
+    display: inline-block;
+    padding: 10px;
+    vertical-align: top;
+    margin-top: 50px;
+}
+
+div.container div.register {
+    width: 49.5%;
+    display: inline-block;
+    padding: 10px;
+    vertical-align: top;
+    margin-top: 50px;
+}
+
+
+/** FLASH MESSAGES *******************************/
+    div.form-group label {
+        display: inline-block;
+    }
+    .registration_msgs, .login_msgs {
+        list-style-type: none;
+        display: inline-block;
+        margin-left: -10px;
+    }
+        .green_message {
+            color: green;
+        }
+        .red_message {
+            color: red;
+        }
+/*************************************************/
+
+/* **************************************************************************** */
+
+div.container div.search_results results_box {
+    vertical-align: top;
+    overflow: scroll;
+    height: 600px
+}
+
+    div.container div.search_results results_box div.img_box {
+        display:inline-block;
+        width: 110px;
+        height: 65px;
+        vertical-align: top;
+        margin: 5px;
+    }
+
+        div.container div.search_results results_box div.img_box {
+            max-width: 100%;
+            max-height: 100%
+        }
+
+    div.container div.search_results results_box div.details_box {
+        display:inline-block;
+    }
+
+        div.container div.search_results results_box div.details_box ul {
+            font-size: 10px;
+            list-style-type: none;
+            vertical-align: top;
+            margin-left: 10px;
+            margin: 5px;
+            text-align: left;
+            color: black;
         }
