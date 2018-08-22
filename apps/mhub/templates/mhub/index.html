@@ -7,6 +7,8 @@
     {% load static %}
     <link rel="stylesheet" href="{% static 'mhub/css/style.css' %}">
     <link rel="shortcut icon" type="image/ico" href="{% static 'mhub/img/favicon.ico' %}"/>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="{% static 'mhub/js/script.js' %}"></script>
 </head>
 <body>
 <div class="container">
@@ -34,6 +36,8 @@
             <input type="submit" class="gobutton" value="Go">
         </form>
     </div>
+
+    <img src="{% static 'mhub/img/loading_pingpong_2.gif' %}" alt="Loading Gif" class="loading_pingpong">
     
     <div class="search_results">
         <div class="results_box youtube_results">
