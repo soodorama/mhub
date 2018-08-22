@@ -5,47 +5,82 @@
 
 body {
     background-color:rgb(215,100,115);
+    color: rgb(244,178,65);
 }
 
 div.container {
-    min-height: 800px;
+    min-height: 900px;
     background: url('/static/mhub/img/table_background_middle.png') no-repeat;
     background-size: cover;
     padding-top: 0.1px;
 }
 
-    div.container h1.heading {
-        margin: 75px 25px 0px 700px;
-        color: white;
+    /* div.header {
+        padding: 5px;
+    } */
+
+    div.container div.header img {
+        height: 120px;
+        width: 120px;
+        margin-left: 30px;
+        border-radius: 50%;
+        border: 2px solid white;
     }
+
+    div.container div.header h1 {
+        margin: 75px 25px 0px 545px;
+        color: white;
+        display:inline-block
+    }
+
+        div.container div.header h1 span#logo_first {
+            color:rgb(200,0,0);
+            text-shadow:1px 1px black;
+        }
+
+        div.container div.header h1 span#logo_second {
+            color:black;
+            text-shadow:1px 1px black;
+        }
+
+        div.container div.header h1 span#logo_third {
+            color: rgb(244,178,65);
+            font-size:1.2em;
+            text-shadow:1px 1px black;
+        }
 
     div.container div.searchbar {
         width: 99%;
         height: 40px;
-        margin: 300px 1% 0px;
+        margin: 200px 1% 0px;
         border-radius: 20px;
-        font-size:0px;
+        font-size: 0px;
     }
 
         div.container div.searchbar input.search {
             width: 79.5%;
             height: 40px;
             padding: 0 10px;
+            font-size: 16px;
             border: 1px solid black;
             vertical-align: top;
+            /* background: url('/static/mhub/img/grid.jpg');
+            background-size: contain; */
+            /* z-index: 1; */
         }
 
-            div.container input.search:focus {
+            div.container button.search_options:focus, input.gobutton:focus, input.search:focus {
                 outline:0;
             }
         
-        div.container div.searchbar button.searchoptions {
+        div.container div.searchbar button.search_options {
             width:9.5%;
             height:40px;
             border-radius: 20px 0 0 20px;
             font-size: 16px;
             vertical-align:top;
-            border: 1px solid black
+            border: 1px solid black;
+            cursor: pointer;
         }
 
         div.container div.searchbar input.gobutton {
@@ -54,5 +89,24 @@ div.container {
             font-size: 16px;
             border:1px solid black;
             border-radius: 0 20px 20px 0;
+            cursor: pointer;
         }
+    
+    div.container div.search_results {
+        font-size:0px;
+        width: 100%;
+        min-height: 300px;
+        margin-top: 50px;
+        padding-left: 25px;
+        text-align:center;
+    }
 
+        div.container div.search_results div.results_box {
+            font-size: 16px;
+            width: 30%;
+            margin-right: 20px;
+            min-height:300px;
+            background-color: white;
+            display: inline-block;
+            border-radius: 10px;
+        }

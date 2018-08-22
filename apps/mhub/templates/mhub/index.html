@@ -10,18 +10,33 @@
 </head>
 <body>
 <div class="container">
-
-    <h1 class="heading" >welcome to pingpong.</h1>
+    <div class="header">
+        <a href="{% url 'home' %}"><img src="{% static 'mhub/img/logo_color_padding_pingpong.png' %}" alt="pingpong logo"></a>
+        <h1 class="heading" >welcome to <span id="logo_first">ping</span><span id="logo_second">pong</span><span id="logo_third">.</span></h1>
+    </div>
 
     <div class="searchbar">
         <form action="{% url 'search' %}" method="POST">
             {% csrf_token %}
-            <button class="searchoptions">Dropdown</button>
-            <input type="text" name="search" class="search" autocomplete="off" placeholder="search anything music">
+            <button class="search_options">Dropdown</button>
+            <input type="text" name="search" class="search" autocomplete="off" placeholder="Search for Music">
             <!-- <button type="submit" class="gobutton"><i class="glyphicon glyphicon-headphones"></i></button> -->
             <input type="submit" class="gobutton" value="Go">
         </form>
     </div>
+    
+    <div class="search_results">
+        <div class="results_box youtube_results">
+            <h3>YouTube</h3>
+        </div>
+        <div class="results_box spotify_results">
+            <h3>Spotify</h3>
+        </div>
+        <div class="results_box soundcloud_results">
+            <h3>Soundcloud</h3>
+        </div>
+    </div>
+
 </div>
 </body>
 </html>
