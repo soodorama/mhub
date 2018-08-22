@@ -5,3 +5,7 @@ def index(request):
 
 def bio(request):
     return render(request, "mhub/bio.html")
+
+def search(request):
+    print(request.POST['search'])
+    return redirect('home')

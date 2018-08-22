@@ -1,9 +1,58 @@
-div.bio-card {
-    vertical-align: top;
-    display: inline-block;
+* {
+    margin: 0px;
+    padding: 0px;
 }
 
-a.back-btn {
-    display: block;
-    margin: 0 700px;
+body {
+    background-color:rgb(215,100,115);
 }
+
+div.container {
+    min-height: 800px;
+    background: url('/static/mhub/img/table_background_middle.png') no-repeat;
+    background-size: cover;
+    padding-top: 0.1px;
+}
+
+    div.container h1.heading {
+        margin: 75px 25px 0px 700px;
+        color: white;
+    }
+
+    div.container div.searchbar {
+        width: 99%;
+        height: 40px;
+        margin: 300px 1% 0px;
+        border-radius: 20px;
+        font-size:0px;
+    }
+
+        div.container div.searchbar input.search {
+            width: 79.5%;
+            height: 40px;
+            padding: 0 10px;
+            border: 1px solid black;
+            vertical-align: top;
+        }
+
+            div.container input.search:focus {
+                outline:0;
+            }
+        
+        div.container div.searchbar button.searchoptions {
+            width:9.5%;
+            height:40px;
+            border-radius: 20px 0 0 20px;
+            font-size: 16px;
+            vertical-align:top;
+            border: 1px solid black
+        }
+
+        div.container div.searchbar input.gobutton {
+            width: 9.5%;
+            height:40px;
+            font-size: 16px;
+            border:1px solid black;
+            border-radius: 0 20px 20px 0;
+        }
+
