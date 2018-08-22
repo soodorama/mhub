@@ -28,7 +28,7 @@ div.container {
     }
 
     div.container div.header h1 {
-        margin: 75px 25px 0px 545px;
+        margin: 55px 25px 0px 545px;
         color: white;
         display:inline-block
     }
@@ -56,6 +56,10 @@ div.container {
         border-radius: 20px;
         font-size: 0px;
     }
+
+        div.container div.searchbar h1.searchbar_header {
+            
+        }
 
         div.container div.searchbar input.search {
             width: 79.5%;
@@ -140,7 +144,7 @@ div.container {
         font-size:0px;
         width: 100%;
         min-height: 300px;
-        margin-top: 50px;
+        margin-top: 20px;
         padding-left: 25px;
         text-align:center;
     }
@@ -153,4 +157,5 @@ div.container {
             background-color: white;
             display: inline-block;
             border-radius: 10px;
+            vertical-align: top;
         }
