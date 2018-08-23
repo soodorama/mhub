@@ -40,13 +40,15 @@
         </form>
     </div>
 
-    <img src="{% static 'mhub/img/loading_pingpong_2.gif' %}" alt="Loading Gif" class="loading_pingpong">
+    <!-- <img src="{% static 'mhub/img/loading_pingpong_2.gif' %}" alt="Loading Gif" class="loading_pingpong"> -->
     
     <div class="search_results">
         <div class="results_box youtube_results">
             <h3>Pong</h3>
             <div class="results_list" id="youtube_results_list"></div>
-            <div id="player"></div>
+            <iframe id="player" type="text/html" width="640" height="390"
+            src="http://www.youtube.com/embed/{{ video_id }}}?enablejsapi=1&origin=http://example.com"
+            frameborder="0"></iframe>
         </div>
         <div class="more_container">
             <button class="more_results"><a href="{%url 'go_pongs' %}">ping more pong</a></button>

@@ -211,7 +211,7 @@ div.container {
 
             div.container div.search_results div.results_box div.results_list {
                 overflow:scroll;
-                height: 555px;
+                height: 120px;
             }
 
             div.container div.search_results div.results_box div.content_box {
@@ -267,6 +267,13 @@ div.container {
             div.container div.search_results div.more_container button.more_results a {
                 text-decoration: none;
             }
+
+    div.container div.search_results div#player {
+        width: 645px;
+        height:400px;
+        /* background-color:black; */
+        margin:10px auto;
+    }
 
 
 /* **************************************************************************** */
