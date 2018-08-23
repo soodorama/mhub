@@ -167,29 +167,38 @@ div.container {
         width: 100%;
         min-height: 500px;
         margin-top: 50px;
-        padding-left: 25px;
+        padding-left: 20px;
         text-align:center;
     }
 
         div.container div.search_results div.results_box {
             vertical-align: top;
-            overflow: scroll;
+            /* padding-left:10px; */
             font-size: 16px;
-            width: 30%;
+            width: 47%;
             margin-right: 20px;
-            min-height:500px;
+            height:600px;
             background-color: white;
             display: inline-block;
             border-radius: 10px;
             vertical-align: top;
         }
 
+            div.container div.search_results div.results_box h3 {
+                text-shadow: 1px 1px black;
+            }
+
+            div.container div.search_results div.results_box div.results_list {
+                overflow:scroll;
+                height: 555px;
+            }
+
             div.container div.search_results div.results_box div.content_box div.img_box {
                 display:inline-block;
-                width: 110px;
+                width: 100px;
                 height: 65px;
                 vertical-align: top;
-                margin: 5px;
+                /* margin: 5px; */
             }
 
                 div.container div.search_results div.results_box div.content_box div.img_box img {
@@ -198,7 +207,8 @@ div.container {
                 }
 
             div.container div.search_results div.results_box div.content_box div.details_box {
-                display:inline-block
+                display:inline-block;
+                width:200px;
             }
 
                 div.container div.search_results div.results_box div.content_box div.details_box ul {
@@ -215,7 +225,7 @@ div.container {
         text-align: center;
         height: 90px;
         padding: 35px 0;
-        margin-left: -25px;
+        margin-left: -20px;
     }
 
         div.container div.search_results div.more_container button.more_results {
@@ -293,7 +303,6 @@ div.container div.register {
             margin: 5px;
             text-align: left;
             color: black;
-            text-shadow: 1px 1px grey;
         }
     
     div.container div.player_fixed {

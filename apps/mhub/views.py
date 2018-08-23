@@ -17,7 +17,7 @@ def bio(request):
     return render(request, "mhub/bio.html")
 
 def ping(request):
-    print(request.POST['search'])
+    # print(request.POST['search'])
     return redirect('go_home')
 
 def pong(request):

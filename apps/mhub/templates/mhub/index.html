@@ -21,7 +21,7 @@
     </div>
 
     <div class="searchbar">
-        <form action="{% url 'process_pings' %}" method="POST">
+        <form action="{% url 'process_pings' %}" method="POST" id="submit_search">
             {% csrf_token %}
             <div class="dropdown">
                 <button class="dropdown_button"><img src="{% static 'mhub/img/dropdown_search_3.png' %}" alt="Dropdown"></button>
@@ -44,25 +44,11 @@
     <div class="search_results">
         <div class="results_box youtube_results">
             <h3>YouTube</h3>
-            <div class="content_box">
-                <div class="img_box">
-                    <img class="result_img" src="{% static 'mhub/img/youtube_thumbnail.png' %}" alt="result_example">
-                </div>
-                <div class="details_box"><ul>
-                    <li>Title: latenight chill vibes...</li>
-                    <li>Author: Chillhop Music</li>
-                    <li>Views: 6.4 Million</li>
-                    <li>Length: 29:04</li>
-                </ul></div>
-            </div>
+            <div class="results_list" id="youtube_results_list"></div>
         </div>
         <div class="results_box spotify_results">
             <h3>Spotify</h3>
-            <div class="content_box">Results</div>
-        </div>
-        <div class="results_box soundcloud_results">
-            <h3>Soundcloud</h3>
-            <div class="content_box">Results</div>
+            <div class="results_list" id="spotify_results_list"></div>
         </div>
         <div class="more_container">
             <button class="more_results"><a href="{%url 'go_pongs' %}">ping more pong</a></button>
@@ -70,7 +56,7 @@
     </div>
 
     
-
+<!-- 
     <div class="player_fixed">
         <p>title</p>
         <a href="#">Play</a>
@@ -79,7 +65,7 @@
         <a href="#">Back</a>
         <a href="#">Add</a>
         <a href="#">Queue</a>
-    </div>
+    </div> -->
 </div>
 </body>
 </html>
