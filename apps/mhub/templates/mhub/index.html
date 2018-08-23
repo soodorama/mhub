@@ -19,8 +19,9 @@
         <a href="{% url 'go_home' %}"><img src="{% static 'mhub/img/logo_color_padding_pingpong.png' %}" alt="pingpong logo"></a>
         <h1 class="heading" >welcome to <span id="logo_first">ping</span><span id="logo_second">pong</span><span id="logo_third">.</span></h1>
     </div>
-
+    
     <div class="searchbar">
+        <h3>Ping</h3>
         <form action="{% url 'process_pings' %}" method="POST" id="submit_search">
             {% csrf_token %}
             <div class="dropdown">
@@ -43,12 +44,9 @@
     
     <div class="search_results">
         <div class="results_box youtube_results">
-            <h3>YouTube</h3>
+            <h3>Pong</h3>
             <div class="results_list" id="youtube_results_list"></div>
-        </div>
-        <div class="results_box spotify_results">
-            <h3>Spotify</h3>
-            <div class="results_list" id="spotify_results_list"></div>
+            <div id="player"></div>
         </div>
         <div class="more_container">
             <button class="more_results"><a href="{%url 'go_pongs' %}">ping more pong</a></button>
