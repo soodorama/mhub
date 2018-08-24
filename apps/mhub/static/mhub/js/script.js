@@ -2,9 +2,9 @@ $(document).ready(function() {
     $(".search_results").hide();
 
     $("#submit_search").submit(function(e) {
-        e.preventDefault();
+        // e.preventDefault();
 
-        $('.results_box').empty()
+        $('iframe').remove()
 
         $(".searchbar").css("margin-top","50px");
         $(".search_results").show("slow");
@@ -20,6 +20,7 @@ $(document).ready(function() {
             $.get("https://www.googleapis.com/youtube/v3/videos?part=snippet%2CcontentDetails%2Cstatistics&id="+res.items[Math.floor(Math.random()*max)].id.videoId+"&key=AIzaSyAVUXSbBno7OstpWmQP-ZcsIuLlZ88mDVA",function(vid) {
                 html_render= "<iframe id='player' type='text/html' width='800' height='600' src='http://www.youtube.com/embed/"+vid.items[0].id+"' frameborder='0'></iframe>"
                 $('.results_box').append(html_render)
+                $('#video_id').val(vid.items[0].id)
             },'json')
             // for (var i = 0; i < 3; i++) {
             //     $.get("https://www.googleapis.com/youtube/v3/videos?part=snippet%2CcontentDetails%2Cstatistics&id="+res.items[i].id.videoId+"&key=AIzaSyAVUXSbBno7OstpWmQP-ZcsIuLlZ88mDVA", function(vid) {
@@ -34,22 +35,9 @@ $(document).ready(function() {
             //     },'json')
             // }
         }, 'json')
-        
+        return false;
     })
 
-    $(".video_0").click(function(){
-        $('#video_id').val($("#input_0").val())
-        // $(".searchbar").css("margin-top","50px");
-        // $(".search_results").show("slow");
-    })
-
-    $(".video_1").click(function(){
-        $('#video_id').val($("#input_1").val())
-    })
-    
-    $(".video_2").click(function(){
-        $('#video_id').val($("#input_2").val())
-    })
 
     // This code loads the IFrame Player API code asynchronously.
     var tag = document.createElement('script');

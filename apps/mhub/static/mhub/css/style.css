@@ -13,6 +13,14 @@ body {
     color:black;
 }
 
+a {
+    color:white;
+}
+
+a:hover {
+    color: red;
+}
+
 div.container {
     min-height: 1000px;
     background: url('/static/mhub/img/table_background_middle.png') no-repeat;
@@ -27,13 +35,10 @@ div.container {
     }
 
         div.container div.header_links a {
-            margin-left: 975px;
+            margin-left: 1025px;
             color: white;
         }
 
-    /* div.header {
-        padding: 5px;
-    } */
 
     div.container div.header img {
         height: 120px;
@@ -171,7 +176,7 @@ div.container {
     div.container div.search_results {
         font-size:0px;
         width: 100%;
-        min-height: 500px;
+        min-height: 700px;
         margin-top: 50px;
         padding-left: 20px;
         text-align:center;
@@ -196,7 +201,7 @@ div.container {
             font-size: 16px;
             width: 98%;
             margin-right: 20px;
-            height:600px;
+            height:700px;
             background-color: white;
             display: inline-block;
             border-radius: 10px;
@@ -356,4 +361,11 @@ div.container div.register {
 div.container a#go_paddle {
     font-size: 24px;
     margin: 100px 50px;
+}
+
+div.container div.pongs_list {
+    height: 500px;
+    width: 100%;
+    padding-left: 20px;
+    padding-top: 20px;
 }

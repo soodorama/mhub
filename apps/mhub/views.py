@@ -4,9 +4,14 @@ from django.contrib import messages
 from .models import *
 
 def index(request):
-    return render(request, "mhub/index.html")
+    if 'id' in request.session:
+        return render(request, "mhub/index.html")
+    else:
+        return redirect(reverse('go_logReg'))
 
 def logReg(request):
+    if 'id' in request.session:
+        return redirect(reverse('go_home'))
     return render(request, "mhub/logReg.html")
 
 def processLogin(request):
@@ -23,7 +28,7 @@ def processRegistration(request):
     errors = User.objects.registration_validator(request.POST)
     if 'success' in errors:
         User.objects.create(first_name=request.POST['first_name'], last_name=request.POST['last_name'] , email_address=request.POST['email_address'] , password=request.POST['password'])
-        for key,val in errors.items():
+        for key,value in errors.items():
             messages.error(request,value, extra_tags=key)
     else:
         for key,value in errors.items():
@@ -36,12 +41,26 @@ def bio(request):
 def ping(request):
     return redirect('go_home')
 
-def load_vid(request):
+def save_vid(request):
+    # print(request.POST['video_id'])
     request.session['video_id'] = request.POST['video_id']
-    Video.objects.create(video_id=request.POST['video_id'])
-    Video.objects.get(id='video_id').saved_by.add(User.objects.get(id=request.session['id']))
-    return redirect('go_home')
+    user = User.objects.get(id=request.session['id'])
+    video = Video.objects.create(video_id=request.POST['video_id'])
+    # print(video)
+    video.saved_by.add(user)
+    return redirect(reverse('go_home'))
 
 def morePong(request):
-    saved_user=User.objects.get(id=request.session['id'])
-    return render(request, "mhub/myPongs.html", { "paddle" : Video.objects.filter(saved_by=saved_user)})
+    if 'id' in request.session: 
+        saved_user=User.objects.get(id=request.session['id'])
+        return render(request, "mhub/myPongs.html", { "paddle" : Video.objects.filter(saved_by=saved_user)})
+    else:
+        return redirect(reverse('go_logReg'))
+
+def delete(request, id):
+    temp = Video.objects.get(id=id).delete()
+    return redirect(reverse('go_morePong'))
+
+def processLogout(request):
+    request.session.clear()
+    return redirect(reverse('go_logReg'))
