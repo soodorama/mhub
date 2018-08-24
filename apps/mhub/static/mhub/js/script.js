@@ -12,12 +12,12 @@ $(document).ready(function() {
         var query = $('.search').val()
         query = query.split(' ').join('+')
         
-        var max = 1 // change on click to load more results
-        
+        var max = 20 // change on click to load more results
+        // console.log(Math.floor(Math.random()*max))
         var search_type = "track" // options are track, album, artist, playlist
         
         $.get("https://www.googleapis.com/youtube/v3/search?part=snippet&q="+query+"&cateogoryId=10&order=relevance&maxResults="+max+"&key=AIzaSyAVUXSbBno7OstpWmQP-ZcsIuLlZ88mDVA", function(res) {
-            $.get("https://www.googleapis.com/youtube/v3/videos?part=snippet%2CcontentDetails%2Cstatistics&id="+res.items[0].id.videoId+"&key=AIzaSyAVUXSbBno7OstpWmQP-ZcsIuLlZ88mDVA",function(vid) {
+            $.get("https://www.googleapis.com/youtube/v3/videos?part=snippet%2CcontentDetails%2Cstatistics&id="+res.items[Math.floor(Math.random()*max)].id.videoId+"&key=AIzaSyAVUXSbBno7OstpWmQP-ZcsIuLlZ88mDVA",function(vid) {
                 html_render= "<iframe id='player' type='text/html' width='800' height='600' src='http://www.youtube.com/embed/"+vid.items[0].id+"' frameborder='0'></iframe>"
                 $('.results_box').append(html_render)
             },'json')
