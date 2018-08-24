@@ -73,6 +73,7 @@ class User(models.Model):
     objects = UserManager()
 
 class Video(models.Model):
+    video_name = models.TextField()
     video_id = models.CharField(max_length=100)
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)

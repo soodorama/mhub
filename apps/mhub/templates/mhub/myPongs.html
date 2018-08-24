@@ -18,7 +18,7 @@
     <div class="pongs_list">
         <h1>All History</h1>
         {% for x in paddle %}
-            <p><a href="http://www.youtube.com/watch?v={{x.video_id}}">{{x.video_id}}</a></p>
+            <p><a href="http://www.youtube.com/watch?v={{x.video_id}}">{{x.video_name}}</a></p>
             <form action="{%url 'deletePong' id=x.id%}">
                 <input type="submit" value="Delete">
             </form>

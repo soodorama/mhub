@@ -48,6 +48,7 @@
             <form action='/save_vid' method='post'>
                 {% csrf_token %}
                 <input type='hidden' name='video_id' id='video_id'>
+                <input type="hidden" name="video_name" id="video_name">
                 <input type='submit' name='save_vid' value='Save Video'>
             </form>
             

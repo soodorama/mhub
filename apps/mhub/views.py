@@ -43,9 +43,9 @@ def ping(request):
 
 def save_vid(request):
     # print(request.POST['video_id'])
-    request.session['video_id'] = request.POST['video_id']
+    # request.session['video_id'] = request.POST['video_id']
     user = User.objects.get(id=request.session['id'])
-    video = Video.objects.create(video_id=request.POST['video_id'])
+    video = Video.objects.create(video_name=request.POST['video_name'],video_id=request.POST['video_id'])
     # print(video)
     video.saved_by.add(user)
     return redirect(reverse('go_home'))

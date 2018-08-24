@@ -21,6 +21,7 @@ $(document).ready(function() {
                 html_render= "<iframe id='player' type='text/html' width='800' height='600' src='http://www.youtube.com/embed/"+vid.items[0].id+"' frameborder='0'></iframe>"
                 $('.results_box').append(html_render)
                 $('#video_id').val(vid.items[0].id)
+                $('#video_name').val(vid.items[0].snippet.title)
             },'json')
             // for (var i = 0; i < 3; i++) {
             //     $.get("https://www.googleapis.com/youtube/v3/videos?part=snippet%2CcontentDetails%2Cstatistics&id="+res.items[i].id.videoId+"&key=AIzaSyAVUXSbBno7OstpWmQP-ZcsIuLlZ88mDVA", function(vid) {
