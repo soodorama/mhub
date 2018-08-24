@@ -1,3 +1,4 @@
+
 from django.db import models
 import bcrypt
 import re
@@ -67,47 +68,10 @@ class User(models.Model):
     last_name = models.CharField(max_length=255)
     email_address = models.CharField(max_length=255)
     password = models.TextField()
-    created_at = models.DateTimeField(auto_now_add=True)
-    updated_at = models.DateTimeField(auto_now=True)
     objects = UserManager()
 
-class Favorite(models.Model):
-    # need to learn ajax for this
-    spotify = models.CharField(max_length=255)
-    soundcloud = models.CharField(max_length=255)
-    youtube = models.CharField(max_length=255)
+class Video(models.Model):
+    video_id = models.CharField(max_length=100)
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
-    user = models.ForeignKey(User, related_name="favorites")
-
-# AND THIS...
-
-class SpotifySong(models.Model):
-    title = models.CharField(max_length=255)
-    artist = models.CharField(max_length=255)
-    album = models.CharField(max_length=255)
-    year = models.IntegerField()
-
-class YouTubeSong(models.Model):
-    title = models.CharField(max_length=255)
-    artist = models.CharField(max_length=255)
-    album = models.CharField(max_length=255)
-    year = models.IntegerField()
-
-class SoundcloudSong(models.Model):
-    title = models.CharField(max_length=255)
-    artist = models.CharField(max_length=255)
-    album = models.CharField(max_length=255)
-    year = models.IntegerField()
-
-# OR...
-
-class Song(models.Model):
-    title = models.CharField(max_length=255)
-    artist = models.CharField(max_length=255)
-    album = models.CharField(max_length=255)
-    year = models.IntegerField()
-    type = models.CharField(max_length=50)
-
-
-
+    saved_by = models.ManyToManyField(User, related_name="saved_videos")

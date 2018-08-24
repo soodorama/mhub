@@ -9,4 +9,5 @@ urlpatterns = [
     url(r'^process/login$', views.processLogin, name='process_login'),
     url(r'^process/registration$', views.processRegistration, name='process_regis'),
     url(r'^load_vid$', views.load_vid, name='load_vid'),
+    url(r'^morePong$', views.morePong, name='go_morePong'),
 ]

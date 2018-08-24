@@ -19,6 +19,8 @@
         <a href="{% url 'go_home' %}"><img src="{% static 'mhub/img/logo_color_padding_pingpong.png' %}" alt="pingpong logo"></a>
         <h1 class="heading" >welcome to <span id="logo_first">ping</span><span id="logo_second">pong</span><span id="logo_third">.</span></h1>
     </div>
+
+    <!-- <a id="go_paddle" href="{%url 'go_morePong' %}">Go To Your Ping Pong Paddle Give a Dog a Bone</a> -->
     
     <div class="searchbar">
         <h3>Ping</h3>
@@ -39,19 +41,16 @@
             <input type="submit" class="gobutton" value="Ping">
         </form>
     </div>
-
+    
     <div class="search_results">
         <div class="results_box youtube_results">
             <h3>Pong</h3>
-            <!-- <div class="results_list" id="youtube_results_list">
-                <form action="{% url 'load_vid' %}" method="POST">
-                    <input type="hidden" name="video_id" id="video_id">
-                </form>
-            </div> -->
             
         </div>
         
     </div>
+
+
 </div>
 </body>
 </html>
