@@ -40,32 +40,18 @@
         </form>
     </div>
 
-    <!-- <img src="{% static 'mhub/img/loading_pingpong_2.gif' %}" alt="Loading Gif" class="loading_pingpong"> -->
-    
     <div class="search_results">
         <div class="results_box youtube_results">
             <h3>Pong</h3>
-            <div class="results_list" id="youtube_results_list"></div>
-            <iframe id="player" type="text/html" width="640" height="390"
-            src="http://www.youtube.com/embed/{{ video_id }}}?enablejsapi=1&origin=http://example.com"
-            frameborder="0"></iframe>
+            <!-- <div class="results_list" id="youtube_results_list">
+                <form action="{% url 'load_vid' %}" method="POST">
+                    <input type="hidden" name="video_id" id="video_id">
+                </form>
+            </div> -->
+            
         </div>
-        <div class="more_container">
-            <button class="more_results"><a href="{%url 'go_pongs' %}">ping more pong</a></button>
-        </div>
+        
     </div>
-
-    
-<!-- 
-    <div class="player_fixed">
-        <p>title</p>
-        <a href="#">Play</a>
-        <a href="#">Pause</a>
-        <a href="#">Skip</a>
-        <a href="#">Back</a>
-        <a href="#">Add</a>
-        <a href="#">Queue</a>
-    </div> -->
 </div>
 </body>
 </html>

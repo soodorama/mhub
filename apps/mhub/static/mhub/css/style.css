@@ -219,6 +219,7 @@ div.container {
                 width: 350px;
                 height: 80px;
                 vertical-align: top;
+                cursor: pointer;
                 /* margin: 5px; */
             }
 

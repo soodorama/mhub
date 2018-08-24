@@ -17,8 +17,8 @@ def bio(request):
     return render(request, "mhub/bio.html")
 
 def ping(request):
-    # print(request.POST['search'])
     return redirect('go_home')
 
-def pong(request):
-    return render(request, "mhub/morePongs.html")
+def load_vid(request):
+    request.session['video_id'] = request.POST['video_id']
+    return redirect('go_home')
